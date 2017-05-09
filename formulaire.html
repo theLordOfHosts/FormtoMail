@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=windows-1250">
+  <meta name="generator" content="PSPad editor, www.pspad.com">
+  <title>Form To Mail par Cod57</title>
+
+  <style type="text/css"> 
+  <!-- 
+  body {
+  background-color: #594121;
+  font-family:"trebuchet ms",sans-serif;
+  font-size:90%;
+  }
+  form {
+  background-color: #FFFFFF;
+  padding:10px;
+  width:546px;
+  }
+  fieldset {
+  padding:20px;
+  margin-bottom:10px;
+  }
+  legend {
+  color:#a0522d;
+  font-weight:bold;
+  }
+  label {
+  margin-top:20px;
+  display:block;
+  }
+  label.inline {
+  display:inline;
+  }
+  input {
+  border:1px solid black;
+  background-color:#A6BEDE;
+  }
+  input[type=radio] {
+  margin-right:50px;
+  background-color:transparent;
+  border:none;
+  }
+  select, option {
+  background-color:#A6BEDE;
+  }
+  textarea {
+  border:1px solid black;
+  background-color:#A6BEDE;
+  }
+  table {
+  border: medium solid #EEEEEE;
+  border-collapse: collapse;
+  width: 50%;
+  }
+  th {
+  font-family: monospace;
+  border: thin solid #EEEEEE;;
+  width: 50%;
+  padding: 5px;
+  background-color: #D0E3FA;
+  background-image: url(sky.jpg);
+  }
+  td {
+  font-family: sans-serif;
+  border: thin solid #EEEEEE;
+  width: 50%;
+  padding: 5px;
+  text-align: center;
+  background-color: #EEEEEE;
+  }
+  caption {
+  font-family: sans-serif;
+  }
+  -->
+  </style>
+  
+  <script type="text/javascript">
+  <!--
+  function verif_formulaire()
+  {
+       
+  if(document.form1.nom.value == "")  {
+  alert("Veuillez entrer votre nom !");
+  document.form1.nom.focus();
+  return false;
+  }
+  
+  if(document.form1.mail.value == "") {
+  alert("Veuillez entrer votre e-mail !");
+  document.form1.mail.focus();
+  return false;
+  } else {
+  
+  var str = document.form1.mail.value;
+  var re = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+  
+  if (!str.match(re)) {
+  alert("Verifier le format\n de votre e-mail !");
+  document.form1.mail.focus();
+  return false;
+  }
+  }
+  
+  if(document.form1.message.value == "") {
+  alert("Veuillez entrer un message !");
+  document.form1.message.focus();
+  return false;
+  }
+  
+  if(document.form1.objet.value == "") {
+  alert("Veuillez entrer un objet !");
+  document.form1.objet.focus();
+  return false;
+  }
+  
+    
+  if(document.form1.code.value == "") {
+  alert("Ne pas oublier le code de sécurité !");
+  document.form1.code.focus();
+  return false;
+  }
+  
+  
+  }
+  -->
+  </script>
+  
+  
+  <script type="text/javascript">
+  <!--
+  function new_captcha()
+  {
+  var c_currentTime = new Date();
+  var c_miliseconds = c_currentTime.getTime();
+  document.getElementById('captcha').src = 'image.php?x='+ c_miliseconds;
+  }
+  -->
+  </script>
+
+    
+  </head>
+  <body>
+  
+  <center>
+  <form action="envoi.php" method="post" enctype="application/x-www-form-urlencoded" name="form1" onSubmit="return verif_formulaire();">
+    <table>
+    <tr><td>Nom : </td><td><input type="text" name="nom" size="45" maxlength="100" /></td></tr>
+    <tr><td>E-mail : </td><td><input type="text" name="mail" size="45" maxlength="100" /></td></tr>
+    <tr><td>Object : </td><td><input type="text" name="objet" size="45" maxlength="100" /></td></tr>
+    <tr><td>Message : </td><td><textarea id="textar" name="message" cols="50" rows="10" ></textarea></td></tr>
+    
+    <tr>
+    <td> </td>
+    <td><a href="JavaScript: new_captcha();">Nouveau code <img src="refresh.jpg" border="0"  width="45" height="45" alt="code" ></a></td>
+    </tr>
+
+    </table>
+    <br /><img src="image.php" id="captcha" width="120" height="45" border="0"> <-- Recopier le code --> <input type="text" name="code" size="6" maxlength="6">
+    <br /><input type="submit" name="sub" value="Envoyer" />
+    <br /><br /><input type="reset" name="vid" value="Vider" />
+  </form>
+  </center>
+  
+  </body>
+</html>
